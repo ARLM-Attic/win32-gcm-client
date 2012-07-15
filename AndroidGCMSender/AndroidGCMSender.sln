@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidGCMSenderApplication", "AndroidGCMSenderApplication\AndroidGCMSenderApplication.csproj", "{91D362E8-AAC7-4CD1-9349-135276B64A6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCMSender", "GCMSender\GCMSender.csproj", "{ADB3AF83-4109-45AA-B30C-E3620C03CE7B}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs17
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AndroidGCMSenderApplication\\AndroidGCMSenderApplication.csproj
+		SccProjectName1 = AndroidGCMSenderApplication
+		SccLocalPath1 = AndroidGCMSenderApplication
+		SccProjectUniqueName2 = GCMSender\\GCMSender.csproj
+		SccProjectName2 = GCMSender
+		SccLocalPath2 = GCMSender
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91D362E8-AAC7-4CD1-9349-135276B64A6D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{91D362E8-AAC7-4CD1-9349-135276B64A6D}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{91D362E8-AAC7-4CD1-9349-135276B64A6D}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{91D362E8-AAC7-4CD1-9349-135276B64A6D}.Debug|x86.ActiveCfg = Debug|x86
+		{91D362E8-AAC7-4CD1-9349-135276B64A6D}.Debug|x86.Build.0 = Debug|x86
+		{91D362E8-AAC7-4CD1-9349-135276B64A6D}.Release|Any CPU.ActiveCfg = Release|x86
+		{91D362E8-AAC7-4CD1-9349-135276B64A6D}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{91D362E8-AAC7-4CD1-9349-135276B64A6D}.Release|Mixed Platforms.Build.0 = Release|x86
+		{91D362E8-AAC7-4CD1-9349-135276B64A6D}.Release|x86.ActiveCfg = Release|x86
+		{91D362E8-AAC7-4CD1-9349-135276B64A6D}.Release|x86.Build.0 = Release|x86
+		{ADB3AF83-4109-45AA-B30C-E3620C03CE7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADB3AF83-4109-45AA-B30C-E3620C03CE7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADB3AF83-4109-45AA-B30C-E3620C03CE7B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{ADB3AF83-4109-45AA-B30C-E3620C03CE7B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{ADB3AF83-4109-45AA-B30C-E3620C03CE7B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ADB3AF83-4109-45AA-B30C-E3620C03CE7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADB3AF83-4109-45AA-B30C-E3620C03CE7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADB3AF83-4109-45AA-B30C-E3620C03CE7B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{ADB3AF83-4109-45AA-B30C-E3620C03CE7B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{ADB3AF83-4109-45AA-B30C-E3620C03CE7B}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
