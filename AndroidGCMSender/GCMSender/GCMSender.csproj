@@ -8,7 +8,7 @@
     <ProjectGuid>{ADB3AF83-4109-45AA-B30C-E3620C03CE7B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GCMSender</RootNamespace>
+    <RootNamespace>Moda.Libraries.GCMSender</RootNamespace>
     <AssemblyName>GCMSender</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

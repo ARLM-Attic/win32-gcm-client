@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Moda.Libraries.GCMSender;
 
 namespace AndroidGCMSenderApplication
 {
@@ -24,14 +25,25 @@ namespace AndroidGCMSenderApplication
             InitializeComponent();
         }
 
+        GCMSender gcm = null;
+
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
+            string deviceToken = DeviceTokenTextBox.Text.Trim();
+            string apiKey = APIKeyTextBox.Text.Trim();
+            string message = PayloadTextBox.Text.Trim();
 
+            gcm = new GCMSender(deviceToken, apiKey);
+            App.GCMResult.Json = gcm.Send(message);
+
+            Window resultWindow = new ResultWindow();
+            resultWindow.Owner = this;
+            resultWindow.ShowDialog();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            DeviceTokenTextBox.Focus();
         }
     }
 }

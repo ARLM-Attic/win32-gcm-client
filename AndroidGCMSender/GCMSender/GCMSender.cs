@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics;
+using System.Net;
+using System.IO;
 
-namespace GCMSender
+namespace Moda.Libraries.GCMSender
 {
     public class GCMSender
     {
@@ -12,8 +14,12 @@ namespace GCMSender
 
         #region Properties
         public string DeviceToken { get; set; }
-        public string APIKey { get; set; } 
+        public string APIKey { get; set; }
+        public string ResultJSON { get; private set; }
         #endregion
+
+        HttpWebRequest gcmRequest = null;
+        HttpWebResponse gcmResponse = null;
 
         public GCMSender()
         {
@@ -28,14 +34,63 @@ namespace GCMSender
 
         public string Send(string message)
         {
+            // Escape condition
+            if (DeviceToken == null || APIKey == null)
+            {
+                return "[ERROR] Device Token or API Key has not been set";
+            }
 
+            InitGCMClient();
+            PostPayload(message);
 
-            return null;
+            try
+            {
+                gcmResponse = gcmRequest.GetResponse() as HttpWebResponse;
+            }
+            catch (WebException we)
+            {
+                return "[ERROR] There is a problem within processing GCM message \n" + we.Message;
+            }
+            ResultJSON = ReadResponse(gcmResponse);
+
+            return ResultJSON;
+        }
+
+        private string ReadResponse(HttpWebResponse response)
+        {
+            StreamReader responseReader = new StreamReader(response.GetResponseStream());
+            return responseReader.ReadToEnd();
+        }
+
+        private void InitGCMClient()
+        {
+            gcmRequest = WebRequest.Create(GCM_URI) as HttpWebRequest;
+            gcmRequest.ContentType = "application/json";
+            gcmRequest.UserAgent = "Android GCM Message Sender Client 1.0";
+            gcmRequest.Method = "POST";
+
+            // Credential info
+            gcmRequest.Headers.Add("Authorization", "key=" + APIKey);
+        }
+
+        private void PostPayload(string message)
+        {
+            // Ready
+            string payloadString = AssembleJSONPayload(DeviceToken, message);
+            byte[] payloadByte = Encoding.UTF8.GetBytes(payloadString);
+            gcmRequest.ContentLength = payloadByte.Length;
+
+            // Go
+            using (Stream payloadStream = gcmRequest.GetRequestStream())
+            {    
+                payloadStream.Write(payloadByte, 0, payloadByte.Length);
+                payloadStream.Close();
+            }
         }
 
         private string AssembleJSONPayload(string gcmDeviceToken, string gcmBody)
         {
-            string payloadFormat =
+            string payloadFormatJSON =
                 "{{" +
                     "\"registration_ids\" : [\"{0}\"]," +
                     "\"data\" : {{" +
@@ -43,7 +98,7 @@ namespace GCMSender
                     "}}" +
                 "}}";
 
-            string payload = string.Format(payloadFormat, gcmDeviceToken, gcmBody);
+            string payload = string.Format(payloadFormatJSON, gcmDeviceToken, gcmBody);
             Debug.WriteLine("payload : " + payload);
 
             return payload;
